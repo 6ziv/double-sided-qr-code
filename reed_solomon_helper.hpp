@@ -27,7 +27,7 @@ namespace RS {
 
         for (int i = 0; i < ret.size(); i++) {
             ret[i] = 0;
-            for (int j = std::max<int>(0, i + 1 - rhs.size()); j < std::min<int>(lhs.size(), i + 1); j++) {
+            for (int j = std::max<int>(0, i + 1 - (int)rhs.size()); j < std::min<int>((int)lhs.size(), i + 1); j++) {
                 ret[i] ^= mul(lhs[j], rhs[i - j]);
             }
         }

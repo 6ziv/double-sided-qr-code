@@ -26,6 +26,7 @@ EM_JS(void, show_in_div, (const char* str, const char* path), {
 });
 void save(const std::vector<std::vector<int>>& m, const char* path) {
 	show_in_div(makeSVG(m).c_str(),path);
+	emscripten_sleep(0);
 }
 #else
 #include <vector>

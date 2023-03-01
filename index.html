@@ -1148,20 +1148,27 @@
 		  document.getElementById("inStr1").disabled = false;
 		  document.getElementById("inStr2").disabled = false;
 		  document.getElementById("btnRun").disabled = false;
+		  document.getElementById("lnk_download_image").disabled = true;
 		  progress_info.style.visibility = "hidden";
 		  if(b){
 			result_div.style.visibility = "";
 			var svg_url = `data:image/svg+xml,${encodeURIComponent(document.getElementById('qr_code_div').innerHTML)}`
 			var svg = document.getElementById('qr_code_div').getElementsByTagName('svg')[0];
 			
-			code_img.src = svg_url;
+			
 			
 			canvas.width = Math.min(svg.clientWidth,400);
 			canvas.height = Math.min(svg.clientHeight,400);
 			canvas.getContext('2d').clearRect(0,0,canvas.width,canvas.height);
-			canvas.getContext('2d').drawImage(code_img,0,0,svg.clientWidth,svg.clientHeight,0,0,canvas.width,canvas.height);
+			code_img.onload = function(){
+				canvas.getContext('2d').drawImage(code_img,0,0,svg.clientWidth,svg.clientHeight,0,0,canvas.width,canvas.height);
+				document.getElementById("lnk_download_image").href = canvas.toDataURL(`image/png`, 1.0);
+				document.getElementById("lnk_download_image").disabled = false;
+			};
+			code_img.src = svg_url;
 			
-			document.getElementById("lnk_download_image").href = canvas.toDataURL(`image/png`, 1.0);
+			
+			
 		  }else{
 		    result_div.style.visibility = "hidden";
 		  }

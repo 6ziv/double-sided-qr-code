@@ -15,3 +15,5 @@ But I'd guess this serves as an interesting example.
 (In fact, when I started this project, I tried a different way: use a big qr code and try to find error correction groups that do not intersect, but the data capacity was really low.)
 
 See source code for a quick example. (Well, it is messy. To try out, you just need to modify the last lines of main.cpp)
+
+Use [this link](https://6ziv.github.io/double-sided-qr-code) to see an online demo built with Emscripten.

@@ -590,7 +590,8 @@ bool try_ver_lv(int ver, int lv, const std::string& str1, const std::string& str
 		[](int x,int y)->bool {return (x + y) % 3 == 0; },
 		[](int x,int y)->bool {return (x % 2 + y % 3) % 2 == 0; },
 		[](int x,int y)->bool {return (x * y % 2 + x * y % 3) == 0; },
-		[](int x,int y)->bool {return (x * y % 2 + x * y % 3) % 2 == 0; }
+		[](int x,int y)->bool {return (x * y % 2 + x * y % 3) % 2 == 0; },
+		[](int x,int y)->bool {return (x * y % 3 + (x + y) % 2) % 2 == 0; }
 	};
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < n; j++) {
